@@ -42,7 +42,7 @@ export default function LoginForm() {
       }
     }, 700);
   };
-
+console.log('LoginForm rendered');
   return (
     <div className="min-h-screen w-full flex bg-white font-sans overflow-hidden">
       {/* LEFT COLUMN: Hero Image with Custom Linear Gradient (40% Width) */}
