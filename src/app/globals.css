@@ -3,6 +3,9 @@
   --foreground: #171717;
 }
 
+/* app/globals.css */
+@import "tailwindcss";
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

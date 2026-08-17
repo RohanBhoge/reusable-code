@@ -1,0 +1,163 @@
+/* =========================================
+   Header Container & Layout
+   ========================================= */
+.header {
+  box-shadow:
+    0 1.2px 8px rgba(0, 0, 0, 0.1),
+    -8px 0 12px -4px #c78a5d,
+    8px 0 12px -4px #c78a5d;
+  background-color: #131314cc;
+  background: linear-gradient(
+    to right,
+    #2e241e 0%,
+    #131314cc 40%,
+    #131314cc 100%
+  );
+  position: relative;
+  z-index: 1000;
+}
+
+.header-divider {
+  border: none;
+  border-top: 1px solid #ffffff;
+  margin: 0;
+  width: 100%;
+}
+
+.navbar {
+  --bs-navbar-toggler-focus-width: 0 !important;
+}
+
+/* =========================================
+   Navigation Links & Hover States
+   ========================================= */
+.nav-link {
+  color: #e5e2e3b2 !important;
+  transition: color 0.3s;
+}
+
+.forhover {
+  position: relative;
+  color: #e5e2e3b2 !important;
+  transition: color 0.3s;
+}
+
+.forhover:hover {
+  color: #fcb887 !important;
+}
+
+.active-link {
+  color: #fcb887 !important;
+  font-weight: 600;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #fcb887;
+}
+
+/* =========================================
+   Buttons & Fill Hover Effects
+   ========================================= */
+.contactBtn {
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, #fcb887, #c08457);
+  color: #4e2601;
+  border: none;
+  height: 45px;
+  cursor: pointer;
+}
+
+.fillHoverBtn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fillHoverBtn::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  bottom: -1px;
+  background: #74d5e1;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.fillHoverBtn:hover::before {
+  transform: translateY(0);
+}
+
+.btnContent {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.4s ease;
+}
+
+.fillHoverBtn:hover .btnContent {
+  color: #1a1a1a;
+}
+
+/* =========================================
+   Mobile Navigation Menu & Overlay
+   ========================================= */
+.nav-overlay {
+  background-color: #424243;
+  width: 70vw;
+  z-index: 1040;
+  will-change: transform;
+  transform: translateX(0);
+}
+
+.toggle-btn {
+  z-index: 1050;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  width: 26px;
+  height: 18px;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: block;
+}
+
+.close-icon {
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
+@media (min-width: 2200px) and (max-width: 2250px) {
+  .nav-link {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-overlay {
+    width: 75vw;
+  }
+}
