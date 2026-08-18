@@ -1,0 +1,73 @@
+/* Card.module.css */
+
+.cardBase {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Hoverable state */
+.hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Interactive click state */
+.interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.interactive:hover {
+  border-color: #93c5fd !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.interactive:active {
+  transform: scale(0.99);
+}
+
+/* Header Image Container Responsive Height */
+.imageContainer {
+  height: 11rem;
+}
+
+@media (min-width: 576px) {
+  .imageContainer {
+    height: 13rem;
+  }
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardImage:hover {
+  transform: scale(1.05);
+}
+
+/* Variant Styles */
+.variantDefault {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.variantElevated {
+  background-color: #ffffff;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.variantBordered {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+}
+
+.variantGhost {
+  background-color: rgba(248, 250, 252, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.variantFlat {
+  background-color: rgba(241, 245, 249, 0.8);
+  border: none;
+}

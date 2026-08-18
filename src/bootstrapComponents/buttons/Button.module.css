@@ -1,0 +1,114 @@
+/* Button.module.css */
+
+/* Custom Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.45s ease-in-out;
+}
+
+.btnBase {
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+.btnBase:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Variant Styles */
+.variantPrimary {
+  background-color: #155DFC;
+  color: #ffffff;
+  border: none;
+}
+.variantPrimary:hover:not(:disabled) {
+  background-color: #114ed6;
+  color: #ffffff;
+}
+.variantPrimary:active:not(:disabled) {
+  background-color: #0e42b8;
+}
+
+.variantDanger {
+  background-color: #D4183D;
+  color: #ffffff;
+  border: none;
+}
+.variantDanger:hover:not(:disabled) {
+  background-color: #b51232;
+  color: #ffffff;
+}
+.variantDanger:active:not(:disabled) {
+  background-color: #960d28;
+}
+
+.variantSecondary {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+.variantSecondary:hover:not(:disabled) {
+  background-color: #f8fafc;
+  color: #334155;
+}
+.variantSecondary:active:not(:disabled) {
+  background-color: #f1f5f9;
+}
+
+.variantDark {
+  background-color: #030213;
+  color: #ffffff;
+  border: none;
+}
+.variantDark:hover:not(:disabled) {
+  background-color: #1a192b;
+  color: #ffffff;
+}
+.variantDark:active:not(:disabled) {
+  background-color: #000000;
+}
+
+.variantSuccess {
+  background-color: #00A63E;
+  color: #ffffff;
+  border: none;
+}
+.variantSuccess:hover:not(:disabled) {
+  background-color: #008f35;
+  color: #ffffff;
+}
+.variantSuccess:active:not(:disabled) {
+  background-color: #00782c;
+}
+
+.variantMuted {
+  background-color: #D1D5DC;
+  color: #334155;
+  border: none;
+}
+.variantMuted:hover:not(:disabled) {
+  background-color: #c3c8cf;
+  color: #334155;
+}
+.variantMuted:active:not(:disabled) {
+  background-color: #b5bac2;
+}
+
+.variantUpload {
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 2px solid #e2e8f0;
+  font-weight: 600;
+}
+.variantUpload:hover:not(:disabled) {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+.variantUpload:active:not(:disabled) {
+  background-color: #f1f5f9;
+}

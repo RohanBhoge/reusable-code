@@ -1,0 +1,94 @@
+/* Linear Progress Bar */
+.progressTrack {
+  width: 100%;
+  height: 0.625rem; /* 10px */
+  background-color: #eeeeef;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease-out, background-color 0.3s ease;
+}
+
+/* Step Wizard Container */
+.stepperContainer {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Step Circles */
+.stepCircle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.stepCompleted {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.stepActive {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.stepFuture {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+/* Connecting Line Between Steps */
+.stepConnector {
+  height: 0.25rem;
+  width: 100%;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.stepConnectorCompleted {
+  background-color: #22c55e;
+}
+
+.stepConnectorPending {
+  background-color: #e5e7eb;
+}
+
+/* Input Fields */
+.customInput {
+  background-color: #f3f3f5;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: #111827;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.customInput:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
