@@ -1,0 +1,95 @@
+/* Form Container */
+.formCard {
+  max-width: 56rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+/* Custom Inputs & Selects Overrides */
+.customInput,
+.customSelect,
+.customTextarea {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: #0f172a;
+  transition: all 0.2s ease-in-out;
+}
+
+.customInput:focus,
+.customSelect:focus,
+.customTextarea:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Input Icon Wrapper */
+.inputIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.rightIcon {
+  position: absolute;
+  right: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: color 0.2s ease;
+}
+
+.rightIconClickable {
+  cursor: pointer;
+}
+
+.rightIconClickable:hover {
+  color: #475569;
+}
+
+.hasRightIcon {
+  padding-right: 2.75rem;
+}
+
+/* Validation Error Styles */
+.errorText {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #dc3545;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.errorIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Label Styling */
+.uppercaseLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+/* Checkbox Styling */
+.customCheckbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}

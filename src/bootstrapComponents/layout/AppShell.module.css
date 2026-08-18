@@ -1,0 +1,44 @@
+.authContainer {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.shellContainer {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f8fafc;
+}
+
+@media (min-width: 640px) {
+  .mainContent {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 2rem;
+  }
+}

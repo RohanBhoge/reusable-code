@@ -1,0 +1,86 @@
+/* LoginForm.module.css */
+
+/* Hero Section Custom Styles */
+.heroContainer {
+  user-select: none;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  transition: transform 1s ease-out;
+}
+
+.heroContainer:hover .heroImage {
+  transform: scale(1);
+}
+
+.gradientOverlay {
+  background: linear-gradient(197.47deg, rgba(21, 93, 252, 0.126) 14%, rgba(34, 43, 63, 0.84) 63.45%);
+}
+
+.heroTextBadge {
+  letter-spacing: 0.1em;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heroTitle {
+  letter-spacing: -0.02em;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.brandDivider {
+  width: 3rem;
+  height: 4px;
+  background-color: #60a5fa;
+  opacity: 0.9;
+}
+
+.copyright {
+  letter-spacing: 0.05em;
+}
+
+/* Form Section Custom Styles */
+.formContainer {
+  max-width: 448px; /* Equivalent to max-w-md */
+  width: 100%;
+}
+
+.forgotLink {
+  transition: color 0.2s ease;
+}
+
+.forgotLink:hover {
+  color: #0d6efd !important; /* Bootstrap primary blue */
+}
+
+.submitBtn {
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+/* Animations */
+.fadeInUp {
+  animation: fadeInUpAnim 0.7s ease-out forwards;
+}
+
+.fadeInUpFast {
+  animation: fadeInUpAnim 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUpAnim {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
