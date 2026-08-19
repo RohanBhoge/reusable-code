@@ -1,0 +1,162 @@
+/* =========================================
+   1. CSS RESET, SETUP & HIDDEN SCROLLBARS
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Hide scrollbars globally */
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+* {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* =========================================
+   2. DESIGN TOKENS & THEMES
+   ========================================= */
+
+/* Default / Light Theme */
+:root,
+[data-theme="light"] {
+  /* --- Fonts --- */
+  --font-primary: "Inter", system-ui, sans-serif;
+  --font-secondary: "Merriweather", serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* --- Responsive Typography (Desktop) --- */
+  --text-h1: 48px;
+  --text-h2: 32px;
+  --text-h3: 24px;
+  --text-p: 16px;
+  --text-small: 14px;
+
+  /* --- Light Theme Colors --- */
+  --bg-color: #ffffff;
+  --text-color: #111827;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+
+  --secondary: #6b7280;
+  --secondary-hover: #4b5563;
+
+  --btn-text-light: #ffffff;
+  --btn-text-dark: #111827;
+
+  --border-color: #e5e7eb;
+}
+
+/* System Dark Mode Auto-Detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+
+    --primary: #60a5fa;
+    --primary-hover: #3b82f6;
+
+    --secondary: #9ca3af;
+    --secondary-hover: #d1d5db;
+
+    --border-color: #374151;
+  }
+}
+
+/* Explicit Dark Theme Overrides (Manual Toggle) */
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+
+  --secondary: #9ca3af;
+  --secondary-hover: #d1d5db;
+
+  --border-color: #374151;
+}
+
+/* =========================================
+   3. RESPONSIVE TYPOGRAPHY (Mobile Overrides)
+   ========================================= */
+@media (max-width: 991px) {
+  :root {
+    --text-h1: 36px;
+    --text-h2: 28px;
+    --text-h3: 20px;
+    --text-p: 16px;
+    --text-small: 14px;
+  }
+}
+
+/* =========================================
+   4. BASE HTML ELEMENTS
+   ========================================= */
+
+/* ------------------------- Font Families ------------------------- */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+/* -------------------------- Font Sizes -------------------------- */
+.font-size-1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+}
+
+.font-size-2 {
+  font-size: var(--text-h2);
+  font-weight: 600;
+}
+
+.font-size-3 {
+  font-size: var(--text-h3);
+  font-weight: 600;
+}
+
+.font-para-1 {
+  font-size: var(--text-p);
+}
+
+.font-size-small {
+  font-size: var(--text-small);
+}
+
+/* ------------------------------Hover Classes------------------------------ */
+.primary-btn-hover:hover {
+  color: var(--primary-hover);
+}
+
+.secondary-btn-hover:hover {
+  color: var(--secondary-hover);
+}
