@@ -20,12 +20,14 @@ import Toast from "@/bootstrapComponents/common/Toast";
 import { Dropdown, EventForm, TextInput } from "@/bootstrapComponents/forms";
 import ToastContainer from "@/bootstrapComponents/common/ToastContainer";
 import AppShell from "@/bootstrapComponents/layout/AppShell";
-import Header from "@/bootstrapComponents/layout/Header";
+// import Header from "@/bootstrapComponents/layout/Header";
 import Sidebar from "@/bootstrapComponents/layout/Sidebar";
 import CommonModalWithTrigger from "@/bootstrapComponents/modals/CommonModalWithTrigger";
 import Stepbar from "@/bootstrapComponents/progress/Stepbar";
 import DataTable from "@/bootstrapComponents/tables/DataTable";
 import Tabs from "@/bootstrapComponents/tabs/Tabs";
+import Header from "@/bootstrapComponents/layout/Header";
+// import Header from "./header/components/Header";
 
 export default function Home() {
   return (
@@ -34,7 +36,7 @@ export default function Home() {
       <LoginForm />
       <Badge />
       <Button />
-      <Dropdown/>
+      <Dropdown />
       <Card image={Img} />
       <BarChart />
       <DoubleBarChart />
@@ -47,13 +49,13 @@ export default function Home() {
       <TextInput />
       <AppShell />
       <Header />
-      {/* <Sidebar /> */}
-      <CommonModalWithTrigger/>
+      <Sidebar />
+      <CommonModalWithTrigger />
       <Stepbar />
       <SearchBar />
       <Pagination />
       <Table />
-      <DataTable/>
+      <DataTable />
       <Tabs />
     </div>
   );
