@@ -1,25 +1,41 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, AlertCircle } from "lucide-react";
+import { toast } from "react-toastify";
 import TextInput from "@/components/forms/TextInput";
 import Button from "@/components/buttons/Button";
-import styles from "./LoginForm.module.css"; // Import the module styles
+import styles from "./LoginForm.module.css";
+// import { apiRequest } from "../../../lib/apiRequest";
 
 export default function LoginForm() {
   const router = useRouter();
-  const [username, setUsername] = useState("admin");
-  const [password, setPassword] = useState("Admin");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const capitalizeMessage = (message = "") =>
+    message.replace(/\b\w/g, (char) => char.toUpperCase());
+
+  useEffect(() => {
+    const expiry = localStorage.getItem("tokenExpiry");
+    if (expiry && Date.now() > parseInt(expiry, 10)) {
+      localStorage.clear();
+      toast.info("Session Expired. Please Login Again.", {
+        position: "top-right",
+      });
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setShowPassword(false);
 
     if (!username.trim() || !password.trim()) {
       setError("Please enter both Staff ID and Password.");
@@ -28,27 +44,55 @@ export default function LoginForm() {
 
     setLoading(true);
 
-    setTimeout(() => {
-      if (username.trim() === "admin" && password === "Admin") {
-        if (typeof window !== "undefined") {
-          sessionStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ name: "Admin User", role: "Administrator" }),
-          );
-        }
-        router.push("/dashboard");
+    try {
+      // const { ok, data } = await apiRequest(
+      //   "/admin/login",
+      //   "POST",
+      //   { username, password },
+      //   false,
+      // );
+
+      if (ok) {
+        const expiryTime = Date.now() + 24 * 60 * 60 * 1000;
+
+        localStorage.setItem("adminToken", data.token);
+        localStorage.setItem("adminName", JSON.stringify(data.admin.fullName));
+        localStorage.setItem("adminId", data.admin.admin_id);
+        localStorage.setItem("adminUserName", data.admin.username);
+        localStorage.setItem("tokenExpiry", expiryTime.toString());
+        localStorage.setItem("adminData", JSON.stringify(data.admin));
+
+        toast.success("Login Successful!", {
+          position: "top-right",
+        });
+
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 1000);
       } else {
-        setLoading(false);
-        setError("Invalid Staff/Faculty ID or Password. (Use admin / Admin)");
+        const errorMsg = capitalizeMessage(
+          data.message || "Invalid Username Or Password",
+        );
+        setError(errorMsg);
+        toast.error(errorMsg, {
+          position: "top-right",
+        });
       }
-    }, 700);
+    } catch (err) {
+      const genericMsg = "Something Went Wrong. Please Try Again.";
+      setError(genericMsg);
+      toast.error(genericMsg, {
+        position: "top-right",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="container-fluid p-0 min-vh-100 overflow-hidden bg-white">
       <div className="row g-0 min-vh-100">
-        {/* LEFT COLUMN: Hero Image (hidden on mobile, takes 5 cols on large screens) */}
+        {/* LEFT COLUMN: Hero Image */}
         <div
           className={`col-lg-5 d-none d-lg-flex flex-column justify-content-between position-relative p-4 p-xl-5 overflow-hidden ${styles.heroContainer}`}
         >
@@ -221,12 +265,10 @@ export default function LoginForm() {
               </Button>
             </form>
 
-            {/* Quick Helper Credentials Note */}
+            {/* Quick Helper Note */}
             <div className="mt-5 pt-4 border-top text-center">
               <p className="small text-secondary mb-0">
-                Default Credentials:{" "}
-                <span className="fw-bold text-dark">admin</span> /{" "}
-                <span className="fw-bold text-dark">Admin</span>
+                Need help logging in? Contact system administration.
               </p>
             </div>
           </div>
